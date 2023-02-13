@@ -81,8 +81,12 @@ const CartSlice = createSlice({
         console.log(item.cartQuantity);
         totalNoCartItems += item.cartQuantity;
       });
-      state.cartItems = [];
-      toast.success(`${totalNoCartItems} items cleared in Cart`);
+      if (totalNoCartItems !== 0) {
+        state.cartItems = [];
+        toast.success(`${totalNoCartItems} items cleared in Cart`);
+      } else {
+        toast.error("Nothing to be cleared");
+      }
     },
 
     setGetTotal: (state, action) => {

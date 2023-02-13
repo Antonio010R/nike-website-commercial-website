@@ -37,17 +37,17 @@ const CartItem = ({ item }) => {
           </div>
         </div>
         <div className="flex flex-col items-center gap-4">
-          <div className="flex flex-col items-center leading-none">
+          <div className="flex flex-col items-start leading-none">
             <h3 className="font-medium text-lg text-slate-900 lg:text-sm">
               {title}
             </h3>
             <p className="text-sm text-slate-800 lg:text-xs">{text}</p>
           </div>
-          <div className="flex items-center justify-around w-full">
+          <div className="flex items-center gap-8 w-full">
             <button
               type="button"
               onClick={onDecreaseItem}
-              className="bg-theme-cart rounded w-6 h-6 lg:w-5 lg:h-5 flex items-center justify-center active:scale-90"
+              className="bg-theme-cart rounded w-6 h-6 lg:w-5 lg:h-5 flex items-center justify-center active:scale-90 "
             >
               <MinusIcon className="w-5 h-5 lg:w-4 lg:h-4 text-white " />
             </button>
@@ -64,7 +64,7 @@ const CartItem = ({ item }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center gap-5">
+      <div className="flex flex-col items-center gap-8">
         <div className="flex items-center justify-center">
           <h4 className="text-lg lg:text-base text-slate-900 font-medium">
             ${price * cartQuantity}

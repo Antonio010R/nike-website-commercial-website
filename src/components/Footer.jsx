@@ -35,8 +35,7 @@ const Footer = ({ endpoint }) => {
         <div>
           <p className="mt-4 text-sm text-center ">
             Copyright<sup className="text-base font-bold">&copy;</sup> All
-            Reserved Rights{" "}
-            <span className="font-semibold uppercase">Anton Roy {year}</span>
+            Reserved Rights <span className="">Anton Roy {year}</span>
           </p>
         </div>
       </div>
