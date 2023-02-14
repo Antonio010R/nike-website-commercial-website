@@ -1,12 +1,20 @@
 import { StarIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { setAddItemToCart, setOpenCart } from "../../redux/slices/cartSlice";
 import HeartIcon from "./HeartIcon";
+import {
+  addToFavList,
+  removeFromFavList,
+  selectFavList,
+} from "../../redux/slices/favSlice";
 
 const Item = ({ item, last, ifExists }) => {
+  const [fav, setFav] = useState(false);
   const dispatch = useDispatch();
   const { id, color, shadow, title, text, img, btn, rating, price } = item;
+  const favList = useSelector(selectFavList);
+
   const onAddToCart = () => {
     const itemToAdd = { id, title, text, img, color, shadow, price };
     dispatch(setAddItemToCart(itemToAdd));
@@ -20,9 +28,23 @@ const Item = ({ item, last, ifExists }) => {
     );
   };
 
-  const onFavToggle =() =>{
-    
-  }
+  const onFavToggle = () => {
+    if (fav === false) {
+      dispatch(addToFavList({ ...item }));
+      setFav(true);
+    } else {
+      dispatch(removeFromFavList({ ...item }));
+      setFav(false);
+    }
+  };
+
+  useEffect(() => {
+    favList.map((favItem) => {
+      if (favItem.id === id) {
+        setFav(true);
+      }
+    });
+  }, [favList]);
 
   return (
     <div
@@ -36,7 +58,9 @@ const Item = ({ item, last, ifExists }) => {
      
       `}
     >
-      <HeartIcon />
+      <div className="absolute z-[20] top-3 right-3 ">
+        <HeartIcon onClickHandler={onFavToggle} state={fav} />
+      </div>
       <div
         className={`text-slate-200 flex flex-col  ${
           ifExists ? "w-full items-start" : "items-center justify-center"

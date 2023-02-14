@@ -5,3 +5,5 @@ export { default as News } from "./News.jsx";
 export { default as Footer } from "./Footer.jsx";
 export { default as NavBar } from "./NavBar.jsx";
 export { default as Cart } from "./Cart.jsx";
+export { default as Favourites } from "./Favourites.jsx";
+export { default as FavItem } from "./FavItem.jsx";

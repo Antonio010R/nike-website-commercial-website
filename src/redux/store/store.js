@@ -17,10 +17,12 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 //   },
 //   middleware: [logger],
 // });
+
 const store = configureStore({
   reducer: persistedReducer,
   middleware: [logger],
 });
+
 export const persistor = persistStore(store);
 
 export default store;

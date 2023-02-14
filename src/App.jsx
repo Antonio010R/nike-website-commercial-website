@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import {
   Cart,
+  Favourites,
   Footer,
   Hero,
   Highlights,
@@ -17,13 +18,13 @@ import {
   story,
   footerAPI,
 } from "./data/data";
-import HeartIcon from "./components/utils/HeartIcon";
 
 const App = () => {
   return (
     <Fragment>
       <NavBar />
       <Cart />
+      <Favourites />
       <div className="flex flex-col gap-20">
         <Hero heroapi={heroapi} />
         <Sales endpoint={popularsales} ifExists />

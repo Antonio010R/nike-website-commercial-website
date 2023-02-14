@@ -10,6 +10,7 @@ import {
   selectCartTotalQuantity,
   setOpenCart,
 } from "../redux/slices/cartSlice";
+import { setOpenFavourites } from "../redux/slices/favSlice";
 
 const NavBar = () => {
   const [navState, setNavState] = useState(false);
@@ -31,6 +32,10 @@ const NavBar = () => {
         cartState: true,
       })
     );
+  };
+
+  const onFavToggle = () => {
+    dispatch(setOpenFavourites(true));
   };
 
   useEffect(() => {
@@ -62,7 +67,10 @@ const NavBar = () => {
               className={`icon-style ${navState ? "text-black" : ""}`}
             />
           </div>
-          <div className="flex items-center active:scale-90 transition-all duration-300  hover:scale-110">
+          <div
+            onClick={onFavToggle}
+            className="flex items-center active:scale-90 transition-all duration-300  hover:scale-110"
+          >
             <HeartIcon
               className={`icon-style ${navState ? "text-black" : ""}`}
             />
@@ -79,7 +87,7 @@ const NavBar = () => {
                 }`}
               />
               <span
-                className={`absolute op-4 right-0  ${
+                className={`absolute -top-2 -right-2  ${
                   navState
                     ? "bg-slate-900 text-slate-100 shadow shadow-slate-900"
                     : "bg-white text-slate-900 shadow shadow-slate-100"
