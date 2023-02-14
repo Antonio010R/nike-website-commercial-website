@@ -9,13 +9,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    --pink-light: #ff7eb4;
+    --pink: #ff2581;
   }
 
   .nike-container {
     @apply w-11/12 m-auto;
   }
 
-  /* Scroll */
   .scroll-hidden::-webkit-scrollbar {
     display: none;
   }
@@ -34,7 +35,6 @@
     @apply rounded-full bg-gradient-to-tr from-blue-500 to-green-500 via-teal-500;
   }
 
-  /* Theme-Colors */
   .bg-theme {
     background-image: linear-gradient(
       0.2deg,
@@ -46,37 +46,30 @@
     @apply bg-gradient-to-b from-slate-900 to-gray-900 shadow-sm shadow-gray-900;
   }
 
-  /* Clip-path */
   .clip-path {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 65%);
   }
 
-  /* Blur-Effect */
   .blur-effect-theme {
     @apply bg-white/50 bg-clip-padding backdrop-filter backdrop-blur bg-opacity-50 opacity-100 z-[100] shadow-sm shadow-slate-100 transition-all duration-300;
   }
 
-  /* Icon Stles */
   .icon-style {
     @apply h-6 w-6 sm:h-5 sm:w-5 text-slate-100 cursor-pointer transition-all duration-100 active:scale-110 leading-tight;
   }
 
-  /* text-gradient */
   .text-gradient {
     @apply text-transparent bg-clip-text bg-gradient-to-br from-blue-900 to-sky-300;
   }
 
-  /* border */
   .rounded-theme {
     border-radius: 5% 100% 10% 5%;
   }
 
-  /* button */
   .button-theme {
     @apply px-7 py-1 rounded active:scale-90 transition-all duration-100 ease-in-out shadow-md sm:text-sm;
   }
 
-  /* tranistions-theme */
   .transitions-theme {
     @apply transition-all duration-700 ease-in-out cursor-pointer;
   }
@@ -116,4 +109,82 @@
   }
 }
 
+/* HeartIcon  (to do )*/
 
+.icon {
+  fill: transparent;
+  stroke: var(--pink);
+  stroke-width: 20;
+  cursor: pointer;
+  position: relative;
+}
+.icon .svg {
+  overflow: visible;
+  width: 20px;
+}
+
+.icon .path {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 1550;
+  transform-origin: center;
+}
+
+.icon .heart-background {
+  position: absolute;
+  left: 4px;
+  right: 0;
+  z-index: -1;
+  stroke: none;
+}
+
+.icon .heart-main:hover path {
+  animation: stroke-animation 2s ease-in-out forwards;
+}
+
+.icon .heart-main:hover ~ .heart-background path {
+  animation: fade-animation 2s ease-in-out forwards;
+}
+
+@keyframes stroke-animation {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  30% {
+    stroke-dashoffset: 1550;
+  }
+  60% {
+    stroke-dashoffset: 3100;
+    fill: transparent;
+    transform: scale(1);
+  }
+  80% {
+    fill: var(--pink);
+    transform: scale(1.1);
+  }
+  90% {
+    transform: scale(1);
+  }
+  100% {
+    stroke-dashoffset: 3100;
+    fill: var(--pink);
+  }
+}
+
+@keyframes fade-animation {
+  70% {
+    fill: transparent;
+    transform: scale(1);
+  }
+  80% {
+    fill: var(--pink-light);
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}

@@ -2,6 +2,7 @@ import { StarIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setAddItemToCart, setOpenCart } from "../../redux/slices/cartSlice";
+import HeartIcon from "./HeartIcon";
 
 const Item = ({ item, last, ifExists }) => {
   const dispatch = useDispatch();
@@ -19,6 +20,10 @@ const Item = ({ item, last, ifExists }) => {
     );
   };
 
+  const onFavToggle =() =>{
+    
+  }
+
   return (
     <div
       className={`relative bg-gradient-to-b ${color} ${shadow} flex group  ${
@@ -31,6 +36,7 @@ const Item = ({ item, last, ifExists }) => {
      
       `}
     >
+      <HeartIcon />
       <div
         className={`text-slate-200 flex flex-col  ${
           ifExists ? "w-full items-start" : "items-center justify-center"

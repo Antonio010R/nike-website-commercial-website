@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import CartSlice from "../slices/cartSlice";
 import logger from "redux-logger";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";

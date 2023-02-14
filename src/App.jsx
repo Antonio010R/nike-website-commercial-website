@@ -17,6 +17,7 @@ import {
   story,
   footerAPI,
 } from "./data/data";
+import HeartIcon from "./components/utils/HeartIcon";
 
 const App = () => {
   return (
