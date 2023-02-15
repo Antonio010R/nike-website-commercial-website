@@ -41,11 +41,15 @@ const Favourites = () => {
             </button>
           </div>
         </div>
-        <div className="p-4 grid grid-cols-2 gap-2 sm:grid-cols-1 sm:gap-4 transition-all duration-300">
+        <div className="p-4 grid grid-cols-2  gap-2 sm:grid-cols-1 sm:gap-4 transition-all duration-300">
           {console.log("hello", favList)}
-          {favList.map((favItem) => (
-            <FavItem key={favItem.id} item={favItem} />
-          ))}
+          {favList.map((favItem, index) => {
+            if (index + 1 === favList.length && index % 2 === 0) {
+              return <FavItem key={favItem.id} item={favItem} last/>;
+            } else {
+              return <FavItem key={favItem.id} item={favItem} />;
+            }
+          })}
         </div>
       </div>
     </div>

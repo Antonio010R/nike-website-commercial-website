@@ -17,7 +17,7 @@
     @apply w-11/12 m-auto;
   }
 
-  .scroll-hidden::-webkit-scrollbar {
+  /* .scroll-hidden::-webkit-scrollbar {
     display: none;
   }
   .scroll-style::-webkit-scrollbar {
@@ -33,7 +33,7 @@
   }
   .scroll-style::-webkit-scrollbar-thumb {
     @apply rounded-full bg-gradient-to-tr from-blue-500 to-green-500 via-teal-500;
-  }
+  } */
 
   .bg-theme {
     background-image: linear-gradient(

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { removeFromFavList } from "../redux/slices/favSlice";
 import { setAddItemToCart } from "../redux/slices/cartSlice";
 
-const FavItem = ({ item }) => {
+const FavItem = ({ item, last }) => {
   const { id, color, shadow, title, text, img, btn, rating, price } = item;
   const [fav, setFav] = useState(true);
   const dispatch = useDispatch();
@@ -22,7 +22,11 @@ const FavItem = ({ item }) => {
 
   return (
     <div
-      className={`relative px-3 py-3 bg-gradient-to-b ${color} rounded-lg ${shadow} shadow-md sm:bg-gradient-to-r `}
+      className={`relative px-3 py-3 bg-gradient-to-b ${color} rounded-lg ${shadow} shadow-md sm:bg-gradient-to-r transition-all duration-700 ${
+        last
+          ? "w-1/2  col-span-2  justify-self-center sm:col-auto sm:w-full "
+          : ""
+      } `}
     >
       <div className="absolute top-3 right-3 ">
         <HeartIcon onClickHandler={onFavToggle} state={fav} />
